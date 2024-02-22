@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import GlobalStyle from 'GlobalStyles';
-import styled from 'styled-components';
 import Layout from './components/Layout';
 import Todo from 'components/Todo';
+import Input from 'components/Input';
 import { v4 as uuidv4 } from 'uuid';
 import 'normalize.css';
 import 'App.css';
@@ -13,8 +13,8 @@ function App() {
   const [title, setTitle] = useState("");
   const [cont, setCont] = useState("");
   const [toDoList, setToDoList] = useState([
-    {id: 1, title: '리액트 빡공', cont: '리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...', isDone: false},
-    {id: 2, title: '리액트 빡공', cont: '리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...리액트공부해야지...', isDone: false},
+    {id: 1, title: '리액트 빡공', cont: '리액트공부해야지...리액트공부해야지...', isDone: false},
+    {id: 2, title: '리액트 빡공', cont: '리액트공부해야지...리액트공부해야지...', isDone: false},
     {id: 4, title: 'ToDoList 만들기', cont: '투두리스트 과제', isDone: true}
   ]);
 
@@ -53,11 +53,13 @@ function App() {
   return (
     <Layout>
       <GlobalStyle />
-      <div className='input-wrap'>
-        <label><input type='text' placeholder='제목을 입력하세요.' value={title} onChange={onChangeTitle}></input></label>
-        <label><input type='text' placeholder='내용을 입력하세요.' value={cont} onChange={onChangeCont}></input></label>
-        <button onClick={addBtnHandler}>할일 추가</button>
-      </div>
+      <Input 
+        title={title}
+        onChangeTitle={onChangeTitle}
+        cont={cont}
+        onChangeCont={onChangeCont}
+        addBtnHandler={addBtnHandler}
+        />
       <div className='todoList-wrap'>
         <div className='working'>
           <h2>Working..</h2>
