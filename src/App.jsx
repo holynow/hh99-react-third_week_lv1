@@ -62,7 +62,7 @@ function App() {
         />
       <div className='todoList-wrap'>
         <div className='working'>
-          <h2>Working..</h2>
+          <h2>🎫 Working..</h2>
           <ul className='working-list'>
             {toDoList
               .filter((item) => !item.isDone)
@@ -77,7 +77,7 @@ function App() {
           </ul>
         </div>
         <div className='done'>
-          <h2>Done..!</h2>
+          <h2>🎟️ Done..!</h2>
           <ul className='working-list'>
             {toDoList
               .filter((item) => item.isDone)
