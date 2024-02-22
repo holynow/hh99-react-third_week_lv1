@@ -1,0 +1,123 @@
+
+.warp {
+  min-height: 100vh;
+  padding: 150px 0;
+  position: relative;
+  background: rgb(60, 62, 200);
+  animation: mymove 10s infinite ease-in-out;
+}
+.content-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 10;
+}
+.header { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 20px;
+  border-bottom: 1px solid #ffffff;
+}
+.header h1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+}
+.header span {
+  font-size: 26px;
+  font-weight: 700;
+  color: rgb(200, 209, 76);
+}
+.input-wrap {
+  display: flex;
+  gap: 30px;
+  margin-top: 100px;
+}
+.input-wrap label {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+.input-wrap input[type="text"] {
+  border-bottom: 1px solid #ffffff;
+  background: transparent;
+  width: 100%;
+  min-width: 300px;
+  padding: 15px 10px;
+  font-size: 24px;
+  color: #fff;
+}
+.input-wrap input::placeholder {
+  color: #cecece;
+}
+.input-wrap label + label input[type="text"] {
+  min-width: 400px;
+}
+.input-wrap button {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+.todoList-wrap {
+  margin-top: 100px;
+}
+.todoList-wrap h2 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+}
+.todoList-wrap .done {
+  margin-top: 100px;
+}
+.working-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+.working-list li {
+  display: grid;
+  grid-template-rows: 30px auto 40px;
+  gap: 20px;
+  padding: 30px 20px 25px;
+  border-radius: 20px;
+  background: #ffffff;
+  transition: all .2s ease-in-out;
+  box-shadow: 0px 0px 0px rgba(0,0,0,.3);
+}
+.working-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 10px rgba(0,0,0,.1);
+}
+.working-list li h3 {
+  font-size: 26px;
+  font-weight: 700;
+}
+.working-list li p {
+  font-size: 20px;
+}
+.working-list li .btn-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.working-list li .btn-wrap button {
+  color: rgb(218, 99, 25);
+  font-size: 16px;
+  font-weight: 400;
+}
+.working-list li .btn-wrap button + button{
+  color: rgb(90, 92, 190);
+}
+
+
+@keyframes mymove {
+  0% {background-color: rgb(90, 92, 190);}
+  50% {background-color: rgb(93, 120, 24);}
+  70% {background-color: rgb(40, 149, 129);}
+  100% {background-color: rgb(90, 92, 190);}
+}
