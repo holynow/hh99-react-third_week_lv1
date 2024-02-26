@@ -9,20 +9,19 @@ import 'App.css';
 
 
 function App() {
-
-  const [title, setTitle] = useState("");
-  const [cont, setCont] = useState("");
   const [toDoList, setToDoList] = useState([
     {id: 1, title: '리액트 빡공', cont: '리액트공부해야지...리액트공부해야지...', isDone: false},
     {id: 2, title: '리액트 빡공', cont: '리액트공부해야지...리액트공부해야지...', isDone: false},
     {id: 4, title: 'ToDoList 만들기', cont: '투두리스트 과제', isDone: true}
   ]);
 
+  const [title, setTitle] = useState("");
+  const [cont, setCont] = useState("");
   const onChangeTitle = (e) => setTitle(e.target.value);
   const onChangeCont = (e) => setCont(e.target.value);
 
   //! toDo 추가버튼
-  const addBtnHandler = () => {
+  const ohClickAddTodo = () => {
     if (title.trim() !== '' && cont.trim() !== '') {
       const newTodo = {
         id: uuidv4(),
@@ -38,12 +37,12 @@ function App() {
     }
   };
   //! toDo 삭제버튼
-  const removeBtnHandler = (id) => {
-    const setNewTodo = toDoList.filter(todo => todo.id !== id);
-    setToDoList(setNewTodo);
+  const onClickRemoveTodo = (id) => {
+    const updateTodo = toDoList.filter(todo => todo.id !== id);
+    setToDoList(updateTodo);
   }
   //! toDo 완료 취소 버튼
-  const toggleDoneHandler = (id) => {
+  const onClickToggle = (id) => {
     const updatedList = toDoList.map((todo) =>
       todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
     );
@@ -58,7 +57,7 @@ function App() {
         onChangeTitle={onChangeTitle}
         cont={cont}
         onChangeCont={onChangeCont}
-        addBtnHandler={addBtnHandler}
+        ohClickAddTodo={ohClickAddTodo}
         />
       <div className='todoList-wrap'>
         <div className='working'>
@@ -70,8 +69,8 @@ function App() {
                 <Todo
                   key={item.id}
                   item={item}
-                  removeBtn={removeBtnHandler}
-                  toggleDone={toggleDoneHandler}
+                  removeBtn={onClickRemoveTodo}
+                  toggleDone={onClickToggle}
                 />
               ))}
           </ul>
@@ -85,8 +84,8 @@ function App() {
                 <Todo
                   key={item.id}
                   item={item}
-                  removeBtn={removeBtnHandler}
-                  toggleDone={toggleDoneHandler}
+                  removeBtn={onClickRemoveTodo}
+                  toggleDone={onClickToggle}
                 />
               ))}
           </ul>
